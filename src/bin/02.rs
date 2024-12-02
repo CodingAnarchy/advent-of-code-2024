@@ -1,13 +1,13 @@
 advent_of_code::solution!(2);
 
 fn is_report_safe(report: &[u32]) -> bool {
-    if report.is_sorted() {
-        if report.windows(2).all(|w| {
+    if report.is_sorted()
+        && report.windows(2).all(|w| {
             let window_diff = w[1] - w[0];
             (1..=3).contains(&window_diff)
-        }) {
-            return true;
-        }
+        })
+    {
+        return true;
     } else if report.is_sorted_by(|a, b| b <= a)
         && report.windows(2).all(|w| {
             let window_diff = w[0] - w[1];
