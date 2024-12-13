@@ -25,23 +25,23 @@ impl Equations {
             return None;
         }
 
-        let det_x = (self.x[2] * self.y[1]) as i64 - (self.x[1] * self.y[2]) as i64;
-        let det_y = (self.x[0] * self.y[2]) as i64 - (self.x[2] * self.y[0]) as i64;
+        let det_a = (self.x[2] * self.y[1]) as i64 - (self.x[1] * self.y[2]) as i64;
+        let det_b = (self.x[0] * self.y[2]) as i64 - (self.x[2] * self.y[0]) as i64;
 
-        if det_x % det != 0 || det_y % det != 0 {
+        if det_a % det != 0 || det_b % det != 0 {
             return None;
         }
 
-        let x = det_x / det;
-        let y = det_y / det;
+        let a = det_a / det;
+        let b = det_b / det;
 
-        if x < 0 || y < 0 {
+        if a < 0 || b < 0 {
             return None;
         }
 
         // Multiply by 3 to get the final answer for A because that costs
         // 3 tokens while B costs 1 token
-        Some((x * 3 + y) as u64)
+        Some((a * 3 + b) as u64)
     }
 }
 
