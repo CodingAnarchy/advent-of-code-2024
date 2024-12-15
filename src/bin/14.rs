@@ -143,14 +143,11 @@ pub fn part_two(input: &str) -> Option<usize> {
         }
     }
 
-    // If there's only one combination then return answer.
-    // if rows.len() == 1 && columns.len() == 1 {
     let t = cols[0];
     let u = rows[0];
     // Combine indices using the Chinese Remainder Theorem to get index mod 10403.
     let res = (5253 * t + 5151 * u) % 10403;
     return Some(res as usize);
-    //}
 }
 
 #[cfg(test)]
